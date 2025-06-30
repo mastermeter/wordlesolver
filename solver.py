@@ -14,6 +14,5 @@ def wordwithoutletter(letter):
     return match_word
 
 if __name__ == "__main__":
-    print(f"Loaded {len(list_word)} words")
     # Example usage
     print("Words with 'a' in position 0:", len(wordcorrectposition('a', 0)))
