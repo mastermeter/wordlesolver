@@ -1,18 +1,31 @@
+from letter_in_position import LP
+from letter_in_word import WL
+from letter_notin_position import LNP
+from letter_notin_word import WNL
 from load_file import list_word
 
-def wordcorrectposition(letter, position):
-    match_word = [w for w in list_word if w[position]==letter]
-    return match_word
+base = list_word
 
-def wordlettermissposition(letter, position):
-    match_word = [w for w in list_word if letter in w and w[position]!=letter]
-    print(len(match_word))
-    return match_word
+constraint = [LP['a'][0],
+ LNP['c'][3],
+ WNL['d'],
+ WNL['y'],
+ WNL['q'],
+ WNL['e'],
+ WNL['t'],
+ WNL['h'],
+ WNL['n'],
+ LNP['i'][4],
+ WNL['o'],
+ WNL['u'],
+ WNL['r'],
+ WNL['s'],
+ WNL['l'],
+ WNL['b'],
+ WNL['z']]
 
-def wordwithoutletter(letter):
-    match_word = [w for w in list_word if letter not in w]
-    return match_word
-
-if __name__ == "__main__":
-    # Example usage
-    print("Words with 'a' in position 0:", len(wordcorrectposition('a', 0)))
+for i in constraint:
+    print(len(base))
+    step = base.intersection(i)
+    base = step
+print(base)

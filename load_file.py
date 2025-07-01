@@ -1,10 +1,10 @@
 def load_words():
     """Load words from words.txt file"""
-    words = []
+    words = set()
     try:
         with open('words.txt') as f:
             for w in f.readlines():
-                words.append(w.strip())
+                words.add(w.strip())
     except FileNotFoundError:
         print("Warning: words.txt not found")
     return words
